@@ -20,7 +20,7 @@ class Face:
         # 设置百度AI人脸识别API参数
         self.options = {
             'max_face_num': 3,
-            'face_fields': 'face_token'
+            'face_field':'age,beauty,expression,gender,glasses,eye_status,emotion'
         }
 
     # 注册人脸
