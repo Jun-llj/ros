@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# coding: UTF-8
+# author: Jun
+# date: 2023/4/10
+
 import cv2
 from aip import AipFace
 import pykinect_azure as pykinect
