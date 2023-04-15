@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: UTF-8
-# author: Jun
+# Created by Jun
 # date: 2023/4/10
 
 import cv2
@@ -12,12 +12,12 @@ from PIL import Image
 
 class Face:
     def __init__(self):
-        self.app_id = 'xxxxxx'
-        self.api_key = 'xxxxxxxxxxxxxx'
-        self.secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+        self.app_id = '32181624'
+        self.api_key = 'XLZwhgnvaMEQYy8FTowW1DkV'
+        self.secret_key = 'Ysa1QEVUwwOPsH28T9khuChOGlRnSX4O'
         # 设置人脸库信息
         self.image_type = 'BASE64'
-        self.group_id = 'xxxxx'
+        self.group_id = '1'
 
         # 初始化百度AI人脸识别API
         self.client = AipFace(self.app_id, self.api_key, self.secret_key)
@@ -25,7 +25,7 @@ class Face:
         # 设置百度AI人脸识别API参数
         self.options = {
             'max_face_num': 3,
-            'face_field':'age,beauty,expression,gender,glasses,eye_status,emotion'
+            'face_field': 'age,beauty,expression,gender,glasses,eye_status,emotion'
         }
 
     # 注册人脸
@@ -37,7 +37,9 @@ class Face:
     def detect(self, image):
         result = self.client.detect(str(frame2base64(image), 'UTF-8'), self.image_type, self.options)
         if result['error_code'] == 0 and result['result']['face_num'] > 0:
-            return result['result']['face_list'][0]['face_token']
+            print(result)
+            # return result['result']['face_list'][0]['face_token']
+            return result
         else:
             return None
 
@@ -65,7 +67,10 @@ class Face:
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
             # 检测人脸
-            face_token = self.detect(frame)
+            # face_token = self.detect(frame)
+            face_data = self.detect(frame)
+            print(face_data)
+            face_token = face_data['result']['face_list'][0]['face_token']
             if face_token is not None:
                 # 搜索人脸所属的用户
                 user_id = self.multi_search(frame)
@@ -90,11 +95,10 @@ def frame2base64(frame):
 def main():
     # 创建Face对象
     face = Face()
-
     # 实时检测人脸
-    user_id = face.real_time_detect()
-    print(user_id)
-
+    face.real_time_detect()
+    # user_id = face.real_time_detect()
+    # print(user_id)
 
 if __name__ == "__main__":
     main()
