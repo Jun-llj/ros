@@ -12,12 +12,12 @@ from PIL import Image
 
 class Face:
     def __init__(self):
-        self.app_id = '32181624'
-        self.api_key = 'XLZwhgnvaMEQYy8FTowW1DkV'
-        self.secret_key = 'Ysa1QEVUwwOPsH28T9khuChOGlRnSX4O'
+        self.app_id = 'xxxxxxxxxxx'
+        self.api_key = 'xxxxxxxxxxxx'
+        self.secret_key = 'xxxxxxxxxxxxxxxxx'
         # 设置人脸库信息
         self.image_type = 'BASE64'
-        self.group_id = '1'
+        self.group_id = 'xxxxxxxx'
 
         # 初始化百度AI人脸识别API
         self.client = AipFace(self.app_id, self.api_key, self.secret_key)
@@ -25,7 +25,7 @@ class Face:
         # 设置百度AI人脸识别API参数
         self.options = {
             'max_face_num': 3,
-            'face_field': 'age,beauty,expression,gender,glasses,eye_status,emotion'
+            'face_field': 'age, beauty, expression, face_shape, gender, glasses, landmark, landmark150, quality, eye_status, emotion, face_type'
         }
 
     # 注册人脸
