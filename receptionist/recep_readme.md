@@ -1,8 +1,8 @@
 ## recep(simplified version)_readme  
 __@Jun-llj__    
-1. 将三个文件放入工作空间/src/功能包/src中  
-2. 需要安装baidu-aip（`python -m pip install baidu-aip`）  
-3.百度AI人脸识别部分参考其python sdk` https://ai.baidu.com/ai-doc/FACE/ek37c1qiz`  
+1. 将三个文件放入工作空间/src/功能包/src中    
+2. 需要安装baidu-aip（`python -m pip install baidu-aip`）
+3. 百度AI人脸识别部分参考其python sdk` https://ai.baidu.com/ai-doc/FACE/ek37c1qiz`  
 4. 百度AI登录后进入控制台，左侧列表展开选择人脸识别，领取免费资源，创建应用，创建人脸库。创建用户组，创建用户，添加用户人脸信息，生成相应的App ID、API Key、Secret Key、group_id，自行修改代码对应部分以及人脸对应的用户名字      
 5. 使用方法：  
 - 终端1：`roslaunch riddle2019 riddle.launch`  
